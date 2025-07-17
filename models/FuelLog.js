@@ -17,10 +17,6 @@ const fuelLogSchema = new mongoose.Schema({
   cost: {
     type: Number, // optional
   },
-  company: {
-    type: String,
-    required: true,
-  },
 }, { timestamps: true });
 
 module.exports = mongoose.model('FuelLog', fuelLogSchema);

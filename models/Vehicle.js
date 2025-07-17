@@ -24,10 +24,15 @@ const vehicleSchema = new mongoose.Schema({
     lat: Number,
     lng: Number,
   },
-  company: {
-    type: String, // link to user.company
+  clientName: {
+    type: String, // For internal grouping
     required: true,
-  },
+  }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Vehicle', vehicleSchema);
+
+// company: {
+//   type: String, // link to user.company
+//   required: true,
+// },

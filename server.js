@@ -30,6 +30,8 @@ app.use('/api/fuel', fuelRoutes);
 const maintenanceRoutes = require('./routes/maintenanceRoutes');
 app.use('/api/maintenance', maintenanceRoutes);
 
+const adminRoutes = require("./routes/adminRoutes");
+app.use("/api/admin", adminRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })

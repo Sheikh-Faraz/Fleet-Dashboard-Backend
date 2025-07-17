@@ -20,11 +20,13 @@ const userSchema = new mongoose.Schema({
     enum: ['admin', 'manager', 'viewer'],
     default: 'viewer',
   },
-  company: {
-    type: String, // You can later link this to a Company model
-    required: true,
-  },
+  
+  assignedVehicles: [{ type: mongoose.Schema.Types.ObjectId, ref: "Vehicle" }],
 }, { timestamps: true });
+// company: {
+//   type: String, // You can later link this to a Company model
+//   required: true,
+// },
 
 // Hash password before saving
 userSchema.pre('save', async function (next) {

@@ -3,6 +3,8 @@ const router = express.Router();
 const {
   addFuelLog,
   getFuelLogs,
+  updateFuelLog,
+  deleteFuelLog,
   getFuelLogsForVehicle,
 } = require('../controllers/fuelController');
 
@@ -14,5 +16,7 @@ router.get('/:vehicleId', protect, getFuelLogsForVehicle);
 
 // Only admin/manager can add
 router.post('/', protect, authorizeRoles('admin', 'manager'), addFuelLog);
+router.put('/:id', protect, authorizeRoles('admin', 'manager'), updateFuelLog);
+router.delete('/:id', protect, authorizeRoles('admin', 'manager'), deleteFuelLog);
 
 module.exports = router;

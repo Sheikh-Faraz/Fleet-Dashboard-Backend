@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {
   createVehicle,
-  getCompanyVehicles,
+  getAllVehicles,
   getVehicle,
   updateVehicle,
   deleteVehicle,
@@ -11,7 +11,7 @@ const {
 const { protect, authorizeRoles } = require('../middleware/authMiddleware');
 
 // Anyone logged in from a company can view
-router.get('/', protect, getCompanyVehicles);
+router.get('/', protect, getAllVehicles);
 router.get('/:id', protect, getVehicle);
 
 // Only admins/managers can create, update, delete
